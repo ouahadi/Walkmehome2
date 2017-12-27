@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.android.walkmehome.MainActivity">
+
+    <TextView
+        android:id="@+id/howToStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_margin="24dp"
+        android:textSize="20sp"
+        android:text="Чудово, я зберіг номер \n+380 ХХ ХХХХХХХ!\n
+    Натисни поїхали, коли вирушатимеш у подорож, яка потребує віртуального супроводження\n
+    У разі потреби натисни 'Допоможи'."
+        android:textAlignment="center"
+        android:textColor="@android:color/darker_gray"
+        />
+
+    <Button
+        android:id="@+id/buttonGo"
+        android:layout_above="@id/buttonHelp"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="поїхали"
+        android:padding="16dp"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif"
+        android:onClick="buttonStart"
+        android:layout_marginBottom="24dp"
+        android:textColor="@android:color/white"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="#009688"
+
+        />
+
+    <Button
+        android:id="@+id/buttonHelp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Допоможи"
+        android:padding="16dp"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif"
+        android:onClick="buttonStart"
+        android:layout_marginBottom="40dp"
+        android:textColor="@android:color/white"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="#FF1744"
+
+        />
+
+</RelativeLayout>

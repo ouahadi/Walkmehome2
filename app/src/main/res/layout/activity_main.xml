@@ -8,7 +8,7 @@
     tools:context="com.example.android.walkmehome.MainActivity">
 
     <TextView
-        android:id="@+id/welcome"
+        android:id="@+id/welcomeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -18,7 +18,7 @@
        />
 
     <Button
-        android:id="@+id/buttonStart"
+        android:id="@+id/startButton"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_width="wrap_content"
@@ -27,7 +27,6 @@
         android:padding="16dp"
         android:textSize="20sp"
         android:fontFamily="sans-serif"
-        android:onClick="buttonStart"
         android:layout_margin="40dp"
         android:textColor="@android:color/white"
         android:layout_gravity="center_horizontal"

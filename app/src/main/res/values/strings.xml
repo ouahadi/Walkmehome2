@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">Walk me home</string>
     <string name="title_activity_main2">Main2Activity</string>
+    <string name="weolcome_text">Привіт!\n\n
+                Дякую за завантаження!\n\n
+                Мене звати Протон з позитивним зарядом і я прототип для проекту
+                \'Пильнуй своїх\'. Я допоможу тобі налаштувати та протестувати віртуальне
+                супроводження. \n\nКоли ми завершимо, я надсилатиму повідомлення про твої
+                пересування та затримки у дорозі тому, на кого ти можеш покластися.</string>
+    <string name="permission_error">Протон не зможе працювати без дозволу на SMS а/або геолокацію</string>
+    <string name="help">Допоможи</string>
+    <string name="saved_number_message">Чудово, я зберіг номер  %1$s!  Натисни поїхали, коли вирушатимеш у подорож, яка потребує віртуального супроводження  У разі потреби натисни \'Допоможи\'.</string>
+    <string name="number_added">Введено номер</string>
+    <string name="phone_number">НОМЕР ТЕЛЕФОНУ</string>
+    <string name="enter_number_request">Введіть номер телефону отримувача у форматі +380 XX XXXXXXX</string>
 </resources>

@@ -25,7 +25,7 @@
     />
 
     <EditText
-        android:id="@+id/numberField"
+        android:id="@+id/numberFieldEditText"
         android:layout_below="@id/enterNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
 
     <TextView
         android:id="@+id/numberEntered"
-        android:layout_below="@id/numberField"
+        android:layout_below="@id/numberFieldEditText"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
         android:layout_marginRight="24dp"

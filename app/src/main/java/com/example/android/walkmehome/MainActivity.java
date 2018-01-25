@@ -1,14 +1,10 @@
 package com.example.android.walkmehome;
 
-import android.Manifest;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.tbruyelle.rxpermissions2.RxPermissions;
-
-import io.reactivex.functions.Consumer;
+import com.example.android.walkmehome.utils.SaveHelper;
 
 public class MainActivity extends BaseActivity {
 
@@ -26,32 +22,9 @@ public class MainActivity extends BaseActivity {
         //
 
         welcomeTextView.setText(getString(R.string.weolcome_text));
-        RxPermissions rxPermissions = new RxPermissions(this);
-        if (!rxPermissions.isGranted(Manifest.permission.SEND_SMS))
-            rxPermissions.request(Manifest.permission.SEND_SMS)
-                    .subscribe(new Consumer<Boolean>() {
-                        @Override
-                        public void accept(Boolean granted) throws Exception {
-                            if (!granted)
-                                showInfoMessage(getString(R.string.permission_error), welcomeTextView);
-                        }
-                    });
-        if (!rxPermissions.isGranted(Manifest.permission.ACCESS_COARSE_LOCATION))
-            rxPermissions.request(Manifest.permission.ACCESS_COARSE_LOCATION)
-                    .subscribe(new Consumer<Boolean>() {
-                        @Override
-                        public void accept(Boolean granted) throws Exception {
-                            if (!granted)
-                                showInfoMessage(getString(R.string.permission_error), welcomeTextView);
-                        }
-                    });
-
-        startButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Main2Activity.startActivity(MainActivity.this);
-            }
-        });
+        checkPermissions(granted -> {});
+        if(!SaveHelper.getPhone(this).equals("")) Main3Activity.startActivity(this);
+        startButton.setOnClickListener(v -> Main2Activity.startActivity(MainActivity.this));
     }
 
 }

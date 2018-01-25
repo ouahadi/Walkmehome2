@@ -11,6 +11,8 @@ import android.content.Intent;
 import android.os.Build;
 import android.telephony.SmsManager;
 
+import com.example.android.walkmehome.R;
+
 import java.util.List;
 
 public class SmsHelper {
@@ -25,11 +27,27 @@ public class SmsHelper {
         }
     }
 
+    public static void sendEmergencySms(Context context, String phone) {
+        LocationHelper.getCurrentLocation(context, location -> {
+            sendSms(context, phone, context.getString(R.string.emergency)
+                    + context.getString(R.string.latitude) + " " + location.getLatitude()
+                    + " " + context.getString(R.string.longitude)+ location.getLongitude());
+        });
+    }
+
     public static void scheduleSms(Context context, String phone) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             SmsJobService.schedule(context, phone);
         } else {
             SmsService.schedule(context, phone);
+        }
+    }
+
+    public static void stopSms(Context context) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            SmsJobService.stop(context);
+        } else {
+            SmsService.stop(context);
         }
     }
 }

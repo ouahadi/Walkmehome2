@@ -34,6 +34,10 @@ public class SmsService extends Service {
         alarm.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), 60*1000, pendingIntent);
     }
 
+    public static void stop(Context context) {
+        context.stopService(new Intent(context, SmsService.class));
+    }
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {

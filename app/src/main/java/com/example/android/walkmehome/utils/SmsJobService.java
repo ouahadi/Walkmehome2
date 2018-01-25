@@ -31,10 +31,15 @@ public class SmsJobService extends JobService {
         bundle.putString("phone", phone);
         JobInfo.Builder builder = new JobInfo.Builder(JOB_ID, component)
                 .setExtras(bundle)
-                .setPeriodic(2 * ONE_MIN);
+                .setPeriodic(4 * ONE_MIN);
 
         JobScheduler jobScheduler = (JobScheduler) context.getSystemService(Context.JOB_SCHEDULER_SERVICE);
         jobScheduler.schedule(builder.build());
+    }
+
+    public static void stop(Context context) {
+        JobScheduler jobScheduler = (JobScheduler)context.getSystemService(Context.JOB_SCHEDULER_SERVICE );
+        jobScheduler.cancel(JOB_ID);
     }
 
     @Override

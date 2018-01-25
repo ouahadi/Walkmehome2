@@ -13,4 +13,9 @@
     <string name="number_added">Введено номер</string>
     <string name="phone_number">НОМЕР ТЕЛЕФОНУ</string>
     <string name="enter_number_request">Введіть номер телефону отримувача у форматі +380 XX XXXXXXX</string>
+    <string name="accept">Підтвердити</string>
+    <string name="Go">Поїхали</string>
+    <string name="emergency">Я у біді, допоможи.</string>
+    <string name="latitude">Latitude:</string>
+    <string name="longitude">Longitude:</string>
 </resources>

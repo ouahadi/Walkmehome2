@@ -1,4 +1,4 @@
-package com.example.android.walkmehome;
+package com.lechick.android.walkmehome;
 
 import org.junit.Test;
 

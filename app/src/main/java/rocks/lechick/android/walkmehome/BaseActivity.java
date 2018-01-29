@@ -1,4 +1,4 @@
-package com.example.android.walkmehome;
+package rocks.lechick.android.walkmehome;
 
 import android.Manifest;
 import android.support.design.widget.Snackbar;
@@ -8,7 +8,9 @@ import android.view.View;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 /*
  * Created by Gleb
@@ -18,23 +20,24 @@ import io.reactivex.functions.Consumer;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
-    private View contentView;
 
     public void checkPermissions(Consumer<Boolean> consumer) {
         RxPermissions rxPermissions = new RxPermissions(this);
-        Observable.empty().compose(rxPermissions.ensure(Manifest.permission.SEND_SMS, Manifest.permission.ACCESS_COARSE_LOCATION))
+        Observable.just(new Object()).compose(rxPermissions.ensure(Manifest.permission.SEND_SMS, Manifest.permission.ACCESS_FINE_LOCATION))
                 .doAfterNext(granted -> {
                     if(!granted) {
-                        showInfoMessage(getString(R.string.permission_error), contentView);
+                        showInfoMessage(getString(rocks.lechick.android.walkmehome.R.string.permission_error), getWindow().getDecorView().getRootView());
                     }
-                }).subscribe(consumer);
+                })
+                .observeOn(Schedulers.io())
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribe(consumer);
 
 
     }
 
     @Override
     public void setContentView(View view) {
-        contentView = view;
         super.setContentView(view);
     }
 

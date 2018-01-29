@@ -1,4 +1,4 @@
-package com.example.android.walkmehome.utils;
+package rocks.lechick.android.walkmehome.utils;
 /*
  * Created by Gleb
  * TulaCo 

@@ -1,4 +1,4 @@
-package com.example.android.walkmehome.utils;
+package rocks.lechick.android.walkmehome.utils;
 
 import android.app.job.JobInfo;
 import android.app.job.JobParameters;
@@ -14,6 +14,8 @@ import android.util.Log;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 
+import rocks.lechick.android.walkmehome.R;
+
 /*
  * Created by Gleb
  * TulaCo 
@@ -26,19 +28,20 @@ public class SmsJobService extends JobService {
     private static final int ONE_MIN = 60 * 1000;
 
     public static void schedule(Context context, String phone) {
+        LocationHelper.setLocationProviderSettings(context);
         ComponentName component = new ComponentName(context, SmsJobService.class);
         PersistableBundle bundle = new PersistableBundle();
         bundle.putString("phone", phone);
         JobInfo.Builder builder = new JobInfo.Builder(JOB_ID, component)
                 .setExtras(bundle)
-                .setPeriodic(4 * ONE_MIN);
+                .setMinimumLatency(1000);
 
         JobScheduler jobScheduler = (JobScheduler) context.getSystemService(Context.JOB_SCHEDULER_SERVICE);
         jobScheduler.schedule(builder.build());
     }
 
     public static void stop(Context context) {
-        JobScheduler jobScheduler = (JobScheduler)context.getSystemService(Context.JOB_SCHEDULER_SERVICE );
+        JobScheduler jobScheduler = (JobScheduler) context.getSystemService(Context.JOB_SCHEDULER_SERVICE);
         jobScheduler.cancel(JOB_ID);
     }
 
@@ -48,7 +51,9 @@ public class SmsJobService extends JobService {
         LocationHelper.getCurrentLocation(this, new OnSuccessListener<Location>() {
             @Override
             public void onSuccess(Location location) {
-                SmsHelper.sendSms(SmsJobService.this, params.getExtras().getString("phone"), "location: " + location.getLatitude() + "; " + location.getLongitude());
+                String message = getString(R.string.sms_text_base) + " " +
+                        getString(R.string.google_maps_link) + location.getLatitude() + "," + location.getLongitude();
+                SmsHelper.sendSms(SmsJobService.this, params.getExtras().getString("phone"), message);
             }
         });
 

@@ -1,4 +1,4 @@
-package com.example.android.walkmehome.utils;
+package rocks.lechick.android.walkmehome.utils;
 /*
  * Created by Gleb
  * TulaCo 
@@ -28,8 +28,8 @@ public class LocationHelper {
 
     public static void setLocationProviderSettings(Context context) {
         LocationRequest mLocationRequest = new LocationRequest();
-        mLocationRequest.setInterval(60000);
-        mLocationRequest.setFastestInterval(20000);
+        mLocationRequest.setInterval(120000);
+        mLocationRequest.setFastestInterval(30000);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 
         LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()

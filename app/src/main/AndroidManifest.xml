@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.walkmehome">
+    package="rocks.lechick.android.walkmehome">
 
     <uses-permission android:name="android.permission.SEND_SMS" />
-    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="rocks.lechick.android.walkmehome.MainActivity"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,15 +21,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Main2Activity"
+            android:name="rocks.lechick.android.walkmehome.Main2Activity"
             android:launchMode="singleTask" />
-        <activity android:name=".Main3Activity" />
+        <activity android:name="rocks.lechick.android.walkmehome.Main3Activity" />
 
         <service
-            android:name=".utils.SmsJobService"
+            android:name="rocks.lechick.android.walkmehome.utils.SmsJobService"
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE" />
-        <service android:name=".utils.SmsService" />
+        <service android:name="rocks.lechick.android.walkmehome.utils.SmsService" />
     </application>
 
 </manifest>

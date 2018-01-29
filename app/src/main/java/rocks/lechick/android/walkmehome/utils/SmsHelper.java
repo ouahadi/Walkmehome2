@@ -1,4 +1,4 @@
-package com.example.android.walkmehome.utils;
+package rocks.lechick.android.walkmehome.utils;
 /*
  * Created by Gleb
  * TulaCo 
@@ -11,9 +11,9 @@ import android.content.Intent;
 import android.os.Build;
 import android.telephony.SmsManager;
 
-import com.example.android.walkmehome.R;
-
 import java.util.List;
+
+import rocks.lechick.android.walkmehome.R;
 
 public class SmsHelper {
 
@@ -28,15 +28,16 @@ public class SmsHelper {
     }
 
     public static void sendEmergencySms(Context context, String phone) {
+        LocationHelper.setLocationProviderSettings(context);
         LocationHelper.getCurrentLocation(context, location -> {
+            String googleLink = context.getString(R.string.google_maps_link) + location.getLatitude() + "," + location.getLongitude();
             sendSms(context, phone, context.getString(R.string.emergency)
-                    + context.getString(R.string.latitude) + " " + location.getLatitude()
-                    + " " + context.getString(R.string.longitude)+ location.getLongitude());
+                    + " " + googleLink);
         });
     }
 
     public static void scheduleSms(Context context, String phone) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             SmsJobService.schedule(context, phone);
         } else {
             SmsService.schedule(context, phone);

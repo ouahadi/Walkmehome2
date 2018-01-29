@@ -4,15 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.android.walkmehome.MainActivity">
+    tools:context="com.lechick.android.walkmehome.MainActivity">
 
     <TextView
-        android:id="@+id/howToStart"
+        android:id="@+id/savedNumberTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_margin="24dp"
-        android:text="@string/saved_number_message"
         android:textAlignment="center"
         android:textColor="@android:color/darker_gray"
         android:textSize="20sp" />
@@ -43,7 +42,7 @@
         android:backgroundTint="#009688"
         android:fontFamily="sans-serif"
         android:padding="16dp"
-        android:text="@string/Go"
+        android:text="@string/go"
         android:textColor="@android:color/white"
         android:textSize="20sp" />
 

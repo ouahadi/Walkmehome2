@@ -1,21 +1,25 @@
 <resources>
-    <string name="app_name">Walk me home</string>
+    <string name="app_name">Пильнуй своїх</string>
     <string name="title_activity_main2">Main2Activity</string>
-    <string name="weolcome_text">Привіт!\n\n
+    <string name="welcome_text">Привіт!\n\n
                 Дякую за завантаження!\n\n
                 Мене звати Протон з позитивним зарядом і я прототип для проекту
                 \'Пильнуй своїх\'. Я допоможу тобі налаштувати та протестувати віртуальне
                 супроводження. \n\nКоли ми завершимо, я надсилатиму повідомлення про твої
                 пересування та затримки у дорозі тому, на кого ти можеш покластися.</string>
     <string name="permission_error">Протон не зможе працювати без дозволу на SMS а/або геолокацію</string>
+    <string name="sms_text_base">Narazi tviy drug tut</string>
+    <string name="in_save">У безпеці</string>
     <string name="help">Допоможи</string>
     <string name="saved_number_message">Чудово, я зберіг номер  %1$s!  Натисни поїхали, коли вирушатимеш у подорож, яка потребує віртуального супроводження  У разі потреби натисни \'Допоможи\'.</string>
     <string name="number_added">Введено номер</string>
     <string name="phone_number">НОМЕР ТЕЛЕФОНУ</string>
     <string name="enter_number_request">Введіть номер телефону отримувача у форматі +380 XX XXXXXXX</string>
     <string name="accept">Підтвердити</string>
-    <string name="Go">Поїхали</string>
-    <string name="emergency">Я у біді, допоможи.</string>
+    <string name="go">Поїхали</string>
+    <string name="emergency">Твій друг попросив про допомогу за адресою </string>
     <string name="latitude">Latitude:</string>
     <string name="longitude">Longitude:</string>
+    <string name="google_maps_link"><![CDATA[https://www.google.com/maps/search/?api=1&query=]]></string>
+    <string name="i_m_in_save">Я у безпеці</string>
 </resources>

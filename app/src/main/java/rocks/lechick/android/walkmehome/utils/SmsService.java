@@ -6,11 +6,15 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
+import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
+import rocks.lechick.android.walkmehome.LocationServerDTO;
 import rocks.lechick.android.walkmehome.R;
 
 /*
@@ -31,7 +35,7 @@ public class SmsService extends Service {
         AlarmManager alarm = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
         Calendar cal = Calendar.getInstance();
         alarm.cancel(pendingIntent);
-        alarm.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), 60*1000, pendingIntent);
+        alarm.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), 60*4000, pendingIntent);
     }
 
     public static void stop(Context context) {
@@ -57,6 +61,13 @@ public class SmsService extends Service {
             String message = getString(R.string.sms_text_base) + " " +
                     getString(R.string.google_maps_link) + location.getLatitude() + "," + location.getLongitude();
             SmsHelper.sendSms(SmsService.this, intent.getStringExtra("phone"), message);
+
+            String android_id = Settings.Secure.getString(getContentResolver(),
+                    Settings.Secure.ANDROID_ID);
+            Date currentTime = Calendar.getInstance().getTime();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
+            String currentDateandTime = sdf.format(new Date());
+            ApiHelper.sendRequest(new LocationServerDTO(android_id, currentDateandTime, location.getLatitude() + "", location.getLongitude() + ""));
             stopSelf();
         });
 

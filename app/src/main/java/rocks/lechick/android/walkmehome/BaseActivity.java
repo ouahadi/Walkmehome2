@@ -29,8 +29,8 @@ public abstract class BaseActivity extends AppCompatActivity {
                         showInfoMessage(getString(rocks.lechick.android.walkmehome.R.string.permission_error), getWindow().getDecorView().getRootView());
                     }
                 })
-                .observeOn(Schedulers.io())
-                .subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
                 .subscribe(consumer);
 
 
